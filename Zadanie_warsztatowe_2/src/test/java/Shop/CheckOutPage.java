@@ -59,7 +59,7 @@ public class CheckOutPage {
             FileHandler.copy(srcFile, destFile);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Failed to save screemshot: " + e.getMessage());
+            System.out.println("Failed to save screenshot: " + e.getMessage());
         }
     }
 

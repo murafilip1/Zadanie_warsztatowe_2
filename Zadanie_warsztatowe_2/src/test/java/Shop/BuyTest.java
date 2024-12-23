@@ -17,7 +17,7 @@ public class BuyTest {
     CheckOutPage checkOutPage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\m_fil\\Documents\\WebDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -30,7 +30,7 @@ public class BuyTest {
     }
 
     @Test
-    public void buySweater(){
+    public void buySweater() {
         driver.get("https://mystore-testlab.coderslab.pl/index.php");
         loginPage.logIn("mczknnexplqcpnynrf@nbmbb.com", "12345");
         myAccountPage.searchSweater("Hummingbird Printed Sweater");
@@ -41,7 +41,7 @@ public class BuyTest {
         productPage.goToCheckOut();
         productPage.goToCheckOut();
         checkOutPage.confirmAddressAndContinue();
-        checkOutPage.takeScreenshot("Order confirmation");
+        checkOutPage.takeScreenshot("Order confirmation"+System.currentTimeMillis());
 
     }
 
