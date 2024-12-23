@@ -14,6 +14,7 @@ public class BuyTest {
     LoginPage loginPage;
     MyAccountPage myAccountPage;
     ProductPage productPage;
+    CheckOutPage checkOutPage;
 
     @Before
     public void setUp(){
@@ -24,6 +25,7 @@ public class BuyTest {
         loginPage = new LoginPage(driver);
         myAccountPage = new MyAccountPage(driver);
         productPage = new ProductPage(driver);
+        checkOutPage = new CheckOutPage(driver);
 
     }
 
@@ -38,6 +40,7 @@ public class BuyTest {
         productPage.addToCard();
         productPage.goToCheckOut();
         productPage.goToCheckOut();
+        checkOutPage.confirmAddressAndContinue();
 
     }
 //    @After
