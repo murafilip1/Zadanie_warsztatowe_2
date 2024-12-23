@@ -41,10 +41,12 @@ public class BuyTest {
         productPage.goToCheckOut();
         productPage.goToCheckOut();
         checkOutPage.confirmAddressAndContinue();
+        checkOutPage.takeScreenshot("Order confirmation");
 
     }
-//    @After
-//    public void quitBrowser(){
-//        driver.quit();
-//    }
+
+    @After
+    public void quitBrowser() {
+        driver.quit();
+    }
 }

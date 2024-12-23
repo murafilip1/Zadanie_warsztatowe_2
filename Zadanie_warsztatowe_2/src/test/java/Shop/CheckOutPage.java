@@ -1,11 +1,14 @@
 package Shop;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.File;
+import java.io.IOException;
+
 
 public class CheckOutPage {
 
@@ -28,7 +31,7 @@ public class CheckOutPage {
     @FindBy(name = "confirmDeliveryOption")
     WebElement confirmDeliveryOptionBtn;
 
-    @FindBy(id = "payment-option-1-container")
+    @FindBy(id = "payment-option-1")
     WebElement payByCheckOption;
 
     @FindBy(className = "condition-label")
@@ -43,9 +46,21 @@ public class CheckOutPage {
         continueBtn.click();
         selfPickUpOption.click();
         confirmDeliveryOptionBtn.click();
-        payByCheckOption.click(); // nie klika się
+        payByCheckOption.click();
         termsAndConditionsCheck.click();
         placeOrderButton.click();
+    }
+
+    public void takeScreenshot(String filename) {
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+        File destFile = new File("C:\\Users\\m_fil\\Desktop\\CodersLab\\Zadanie warsztatowe 2\\Zadanie_Warsztatowe_2\\Zadanie_warsztatowe_2\\screenshots\\" + filename + ".jpg");
+        try {
+            FileHandler.copy(srcFile, destFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to save screemshot: " + e.getMessage());
+        }
     }
 
 }
